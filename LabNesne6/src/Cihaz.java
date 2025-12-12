@@ -21,6 +21,6 @@ public class Cihaz {
         }
     }
     public void bilgiGoster(){
-        System.out.println("Marka Adı: "+marka+"Model Adı: "+model+"Fiyat: "+fiyat);
+        System.out.println("Marka Adı: "+marka+" Model Adı: "+model+" Fiyat: "+fiyat+" Açık mı: "+acikMi);
     }
 }

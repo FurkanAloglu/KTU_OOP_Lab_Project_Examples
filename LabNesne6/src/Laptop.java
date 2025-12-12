@@ -38,20 +38,17 @@ public class Laptop extends Cihaz implements SarjEdilebilir,Baglanabilir,Tasinab
     }
     @Override
     public void baglan(String agAdi){
-        agAdi="Wifi";
-        bagli=true;
+        this.agAdi = agAdi;
+        this.bagli = true;
     }
     @Override
     public void baglantiKes(){
-        agAdi=null;
-        bagli=false;
+        this.agAdi=null;
+        this.bagli=false;
     }
     @Override
     public Boolean bagliMi(){
-        if(agAdi==null){
-            return false;
-        }
-        return true;
+        return Boolean.TRUE.equals(bagli);
     }
     @Override
     public String getBaglantiAg(){
