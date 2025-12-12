@@ -1,0 +1,8 @@
+src/Main.java
+src/PrimAlabilir.java
+src/Calisan.java
+src/TamZamanliCalisan.java
+src/TerfiAlabilir.java
+src/YariZamanliCalisan.java
+src/Stajyer.java
+src/Yonetici.java
