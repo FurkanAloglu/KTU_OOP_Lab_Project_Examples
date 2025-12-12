@@ -1,18 +1,20 @@
 public class Yonetici extends TamZamanliCalisan {
-    String departman;
-    Integer ekipBoyutu;
+    private String departman;
+    private Integer ekipBoyutu;
 
-    public Yonetici(String departman, Integer ekipBoyutu, Double performansPuani, Integer hizmetYili, String duzey, String kimlikNo, Double temelMaas) {
-        super(performansPuani, hizmetYili, duzey, kimlikNo, temelMaas);
+    public Yonetici(String departman, Integer ekipBoyutu, Double performansPuani, Integer hizmetYili, String duzey, String ad, String kimlikNo, Double temelMaas) {
+        super(performansPuani, hizmetYili, duzey, ad, kimlikNo, temelMaas);
+        if(departman==null || departman.isBlank()) throw new IllegalArgumentException("departman gecersiz");
+        if(ekipBoyutu==null || ekipBoyutu<0) throw new IllegalArgumentException("ekipBoyutu gecersiz");
         this.departman = departman;
         this.ekipBoyutu = ekipBoyutu;
     }
     public Double yoneticiPrimi() {
-        return ekipBoyutu * temelMaas * 0.01;
+        return ekipBoyutu * maasHesapla() * 0.01; // small bonus based on current salary
     }
     @Override
     public Double maasHesapla() {
-        return temelMaas + primHesapla() + yoneticiPrimi();
+        return super.maasHesapla() + ekipBoyutu * 0.01 * super.maasHesapla();
     }
     @Override
     public void bilgiGoster() {

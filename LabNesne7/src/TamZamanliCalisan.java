@@ -1,14 +1,13 @@
 public class TamZamanliCalisan extends Calisan implements PrimAlabilir,TerfiAlabilir{
-    Double performansPuani;
-    Integer hizmetYili;
-    String duzey;
+    private Double performansPuani;
+    private Integer hizmetYili;
+    private String duzey;
     public TamZamanliCalisan(Double performansPuani,Integer hizmetYili,String duzey,String ad,String kimlikNo,Double temelMaas){
         super(ad,kimlikNo,temelMaas);
+        if(performansPuani==null || performansPuani < 0) throw new IllegalArgumentException("performansPuani gecersiz");
+        if(hizmetYili==null || hizmetYili < 0) throw new IllegalArgumentException("hizmetYili gecersiz");
         this.hizmetYili=hizmetYili;
         this.performansPuani=performansPuani;
-        this.ad=ad;
-        this.kimlikNo=kimlikNo;
-        this.temelMaas=temelMaas;
         this.duzey=duzey;
     }
     @Override
@@ -34,5 +33,6 @@ public class TamZamanliCalisan extends Calisan implements PrimAlabilir,TerfiAlab
     @Override
     public void bilgiGoster() {
         super.bilgiGoster();
+        System.out.println("Duzey: "+duzey+" Performans: "+performansPuani+" Hizmet Yili: "+hizmetYili);
     }
 }

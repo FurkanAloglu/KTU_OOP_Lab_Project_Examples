@@ -1,6 +1,6 @@
 public class YariZamanliCalisan extends Calisan implements PrimAlabilir{
-    Double saatUcreti;
-    Integer calismaSaati;
+    private Double saatUcreti;
+    private Integer calismaSaati;
 
     @Override
     public Double maasHesapla(){
@@ -15,11 +15,10 @@ public class YariZamanliCalisan extends Calisan implements PrimAlabilir{
     }
     public YariZamanliCalisan(Double saatUcreti,Integer calismaSaati,String ad,String kimlikNo,Double temelMaas){
         super(ad,kimlikNo,temelMaas);
+        if(saatUcreti==null || saatUcreti<0) throw new IllegalArgumentException("saatUcreti gecersiz");
+        if(calismaSaati==null || calismaSaati<0) throw new IllegalArgumentException("calismaSaati gecersiz");
         this.saatUcreti=saatUcreti;
         this.calismaSaati=calismaSaati;
-        this.ad=ad;
-        this.kimlikNo=kimlikNo;
-        this.temelMaas=temelMaas;
     }
     @Override
     public String calisanTipi(){
@@ -28,5 +27,6 @@ public class YariZamanliCalisan extends Calisan implements PrimAlabilir{
     @Override
     public void bilgiGoster() {
         super.bilgiGoster();
+        System.out.println("Saat ucreti: "+saatUcreti+" Calisma saati: "+calismaSaati);
     }
 }

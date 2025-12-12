@@ -1,9 +1,6 @@
 public class Stajyer extends Calisan{
     public Stajyer(String ad,String kimlikNo,Double temelMaas){
         super(ad,kimlikNo,temelMaas);
-        this.ad=ad;
-        this.kimlikNo=kimlikNo;
-        this.temelMaas=temelMaas;
     }
     @Override
     public Double maasHesapla(){
